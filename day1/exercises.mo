@@ -43,10 +43,11 @@ actor Registry {
     };  
 
     public query func conditionalRep() : async Nat{
-        while ( counter < 10 and earned <100){
-            earned+1;
-        }
-        return earned;
+        while ( counter < 10 and earned < 100){
+            counter := counter + 1;
+            earned := earned + 10;
+        };
+        return counter;
     }
     
 };
