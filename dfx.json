@@ -1,0 +1,18 @@
+{
+    "canisters": {
+      "first_day_ex": {
+        "main": "day1/exercises.mo",
+        "type": "motoko"
+      },
+        "second_day_ex": {
+            "main": "day2/exercises.mo",
+            "type": "motoko"
+        }
+    },
+    "networks": {
+        "local": {
+          "bind": "127.0.0.1:8000",
+          "type": "ephemeral"
+        }
+      }
+}
