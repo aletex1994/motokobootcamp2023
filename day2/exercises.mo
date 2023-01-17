@@ -4,7 +4,6 @@ import Debug "mo:base/Debug";
 import Text "mo:base/Text";
 import Iter "mo:base/Iter";
 actor {
-
    let d : Char = 'D';
    public func getD() : async () {
       Debug.print(debug_show(Char.toNat32(d)))
@@ -20,7 +19,7 @@ actor {
    let text : Text = "motoko";
    let text2 : Text = "motoko2";
    public func test() : async Bool {
-    return (Text.contains(text,pattern));
+    return (Text.contains(text2,pattern2));
    };
 
    public func text_to_blob(t:Text) : async Blob{
@@ -43,5 +42,4 @@ actor {
 
     let i = Iter.fromArray(array);
     let isize = Iter.size(i);
-    
 }

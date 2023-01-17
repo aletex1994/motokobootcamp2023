@@ -1,1 +1,7 @@
-
+service : {
+  getD: () -> ();
+  test: () -> (bool);
+  testArray: () -> ();
+  testIterator: () -> ();
+  text_to_blob: (text) -> (blob);
+}
