@@ -2,14 +2,9 @@ import Blob "mo:base/Blob";
 import Float "mo:base/Float";
 import Nat "mo:base/Nat";
 
-actor challengeDayOne {
+actor {
 
-  let myAnswer : Text = "Nat32";
   var myNumber : Float = 0;
-
-  public query func firstAnswer() : async Text {
-    return myAnswer;
-  };
 
   public func moltiplication(x : Float, y : Float) : async Float {
     myNumber := x * y;
@@ -31,6 +26,7 @@ actor challengeDayOne {
   };
 
   stable var counter : Nat = 0;
+  
   public func set_counter(n : Nat) : async Nat {
     counter := n;
     counter;
