@@ -1,29 +1,34 @@
-# <a id="coding-challenges"> 🥊 Coding challenges </a>
-1. Write a function **multiply** that takes two natural numbers and returns the product. 
-```
-multiply(n : Nat, m : Nat) -> async Nat
-```
-2. Write a function **volume** that takes a natural number n and returns the volume of a cube with side length n.
-```
-volume(n : Nat) -> async Nat
-```
-3. Write a function **hours_to_minutes** that takes a number of hours n and returns the number of minutes.
-```
-hours_to_minutes(n : Nat) -> async Nat
-```
-4. Write two functions **set_counter** & **get_counter** .
+# <a id="questions"> 🙋 Questions </a>
+1. How much is the current memory capacity of a canister? 
+   A : 48Gb
 
-- set_counter sets the value of the counter to n.
-- get_counter returns the current value of the counter.
+2. What is the issue with the following code sample?
 ```
-set_counter(n : Nat) -> async ()
-get_counter() -> async Nat
+actor {
+  let counter : Nat = 0;
+  public func increment_counter() : async () {
+    counter := counter + 1;
+  };
+}
 ```
-5. Write a function **test_divide** that takes two natural numbers n and m and returns a boolean indicating if n divides m.
+A: let is immutable, if we want to assign new value we have to use var instead of let 
+
+3. What is the issue with the following code sample?
 ```
-test_divide(n: Nat, m : Nat) -> async Bool
+actor {
+  var message : Text = 0;
+
+  public query func change_message(new_message : Text) : async () {
+    message := new_message;
+    return;
+  };
+  
+  public query func see_message() : async Text {
+    return(message);
+  };
+}
 ```
-6. Write a function **is_even** that takes a natural number n and returns a boolean indicating if n is even.
-```
-is_even(n : Nat) -> async Bool 
-```
+A: You can not assign a Nat to a Text type.
+
+1.  False or True: we can remove the keyword **async** for the return argument of a query function since queries are faster to answer.
+A: False
