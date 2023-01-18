@@ -11,14 +11,12 @@ actor challengeDayOne{
   };
 
   public func moltiplication(x:Float,y:Float) : async Float {
-    var res = x*y;
-    myNumber:=res;
+    myNumber := x*y;
     return myNumber;
   };
 
   public func addFloatAndSquare() : async Float {
-    var addFloat : Float = 10.3;
-    myNumber:=myNumber+addFloat;
+    myNumber:=myNumber+10.3;
     myNumber:=Float.sqrt(myNumber);
     return myNumber;
   };
