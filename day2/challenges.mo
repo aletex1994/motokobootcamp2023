@@ -54,12 +54,17 @@ actor {
     };
   };
 
+
   type Pattern = Text.Pattern;
   let pattern : Pattern = #char(' ');
-  public func number_of_words(mySentence : Text) : async Nat {
-    var i : Nat = 0;
-    for (words in Text.split(mySentence, pattern)) {
-      i := i +1;
+  public func number_of_words(mySentence : Text) : async Nat{
+    let iter = Text.split(mySentence, pattern);
+    let myArray : [Text] = Iter.toArray(iter);
+    var i:Nat=0;
+    for(words in myArray.vals()){
+      if(words!=""){
+        i := i+1;
+      }
     };
     return i;
   };
