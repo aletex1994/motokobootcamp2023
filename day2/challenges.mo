@@ -82,7 +82,6 @@ actor {
     return Array.freeze<Nat>(array);
   };
 
-
   public query func convert_to_binary(n : Int) : async Text {
     var binary : Text = "";
     var num : Int = n;
