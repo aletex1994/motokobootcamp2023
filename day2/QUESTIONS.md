@@ -1,25 +1,39 @@
-# Coding challenges 🧑‍💻
-1. Write a function **average_array** that takes an array of integers and returns the average value of the elements in the array.
+# Questions 🙋
+
+1. Who controls the ledger canister? 
+2. What is the subnet of the canister with the id: **mwrha-maaaa-aaaab-qabqq-cai**? How much nodes are running this subnet?  
+3. I have a neuron with 1O ICPs locked with a dissolve delay of 4 years - my neuron has been locked for 2 years. What is my expected voting power?
+4. What is wrong with the following code?
 ```
-average_array(array : [Int]) -> async Int. 
+actor {
+  let n : Nat = 50;
+  let t : Text = "Hello";
+
+  public func convert_to_text(m : Nat) : async Text {
+    Nat.toText(m);
+  };
+}
 ```
-2. **Character count**: Write a function that takes in a string and a character, and returns the number of occurrences of that character in the string.
+5. What is wrong with the following code?
 ```
-count_character(t : Text, c : Char) -> async Nat
+actor {
+  var languages : [var Text] = ["English", "German", "Chinese", "Japanese", "French"];
+
+  public func show_languages(language : Text) : async [var Text] {
+    return (languages);
+  };
+ 
+}
 ```
-3. Write a function **factorial** that takes a natural number n and returns the [factorial](https://www.britannica.com/science/factorial) of n.
+6. What is wrong with the following code?
 ```
-factorial(n : Nat) ->  async Nat
-```
-4.  Write a function **number_of_words** that takes a sentence and returns the number of words in the sentence.
-```
-number_of_words(t : Text) -> async Nat 
-```
-5. Write a function **find_duplicates** that takes an array of natural numbers and returns a new array containing all duplicate numbers. The order of the elements in the returned array should be the same as the order of the first occurrence in the input array.
-```
-find_duplicates(a : [Nat]) -> async [Nat]
-```
-6. Write a function **convert_to_binary** that takes a natural number n and returns a string representing the binary representation of n.
-```
-convert_to_binary(n : Nat) -> async Text
+actor {
+  var languages : [Text] = ["English", "German", "Chinese", "Japanese", "French"];
+
+  public func add_language(new_language: Text) : async [Text] {
+    languages := Array.append<Text>(languages, [new_language]);
+    return (languages);
+  };
+ 
+}
 ```

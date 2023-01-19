@@ -54,14 +54,47 @@ actor {
     };
   };
 
+
   type Pattern = Text.Pattern;
   let pattern : Pattern = #char(' ');
-  public func number_of_words(mySentence : Text) : async Nat {
-    var i : Nat = 0;
-    for (words in Text.split(mySentence, pattern)) {
-      i := i +1;
+  public func number_of_words(mySentence : Text) : async Nat{
+    let iter = Text.split(mySentence, pattern);
+    let myArray : [Text] = Iter.toArray(iter);
+    var i:Nat=0;
+    for(words in myArray.vals()){
+      if(words!=""){
+        i := i+1;
+      }
     };
     return i;
+  };
+
+  // Work in progress
+  public func find_duplicates(myArray : [Nat]) : async [Nat] {
+    var array = [var 0];
+    for (curNat in myArray.vals()) {
+
+      var arrDuplicates : [Nat] = Array.filter<Nat>(myArray, func x = x == curNat );
+      var arrVarDuplicates = Array.thaw<Nat>(arrDuplicates);
+      array := arrVarDuplicates;
+
+    };
+    return Array.freeze<Nat>(array);
+  };
+
+
+  public query func convert_to_binary(n : Int) : async Text {
+    var binary : Text = "";
+    var num : Int = n;
+    while (num > 0) {
+      if (num % 2 == 0) {
+        binary := "0" # binary;
+      } else {
+        binary := "1" # binary;
+      };
+      num := num / 2;
+    };
+    return binary;
   };
 
 };
