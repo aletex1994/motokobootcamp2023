@@ -1,7 +1,15 @@
 {
     "canisters":{
-        "first_canister": {
-            "main" : "day1/challenges.mo",
+        "utils": {
+            "main" : "day3/utils.mo",
+            "type":"motoko"
+        },
+        "main":{
+            "main":"day3/main.mo",
+            "type":"motoko"
+        },
+        "book":{
+            "main":"day3/book.mo",
             "type":"motoko"
         }
     },
