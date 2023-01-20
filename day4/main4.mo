@@ -38,5 +38,4 @@ actor{
         return Fn.find_in_buffer(my_buffer,4);
   };
 
-
 };
