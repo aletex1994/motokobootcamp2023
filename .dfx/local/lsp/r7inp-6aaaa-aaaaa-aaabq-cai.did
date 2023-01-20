@@ -1,0 +1,5 @@
+service : {
+  dropped: () -> (vec nat);
+  remove_even: (vec nat) -> (vec nat);
+  second_maximum: (vec int) -> (int);
+}
