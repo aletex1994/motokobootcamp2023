@@ -11,6 +11,14 @@
         "book":{
             "main":"day3/book.mo",
             "type":"motoko"
+        },
+        "day4":{
+            "main":"day4/challenges.mo",
+            "type":"motoko"
+        },
+        "main4":{
+            "main":"day4/main4.mo",
+            "type":"motoko"
         }
     },
     "networks": {
