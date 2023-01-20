@@ -69,17 +69,22 @@ actor {
     return i;
   };
 
-  // Work in progress
-  public func find_duplicates(myArray : [Nat]) : async [Nat] {
-    var array = [var 0];
-    for (curNat in myArray.vals()) {
+  public query func find_duplicates(a : [Nat]) : async [Nat] {
+    var duplicate : [Nat] = [];
+    var i : Nat = 0;
 
-      var arrDuplicates : [Nat] = Array.filter<Nat>(myArray, func x = x == curNat );
-      var arrVarDuplicates = Array.thaw<Nat>(arrDuplicates);
-      array := arrVarDuplicates;
-
+    while (i < a.size()) {
+      var j : Nat = i;
+      while (j > 0) {
+        j -= 1;
+        if (a[i] == a[j]) {
+          duplicate := Array.append<Nat>(duplicate, [a[j]]);
+          j := 0;
+        };
+      };
+      i += 1;
     };
-    return Array.freeze<Nat>(array);
+    return duplicate;
   };
 
   public query func convert_to_binary(n : Int) : async Text {
