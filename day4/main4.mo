@@ -1,25 +1,41 @@
 import Buffer "mo:base/Buffer";
 import List "mo:base/List";
-import Prelude "mo:base/Prelude";
+import Fn "./challenges";
+import Principal "mo:base/Principal";
+import Map "mo:base/HashMap";
+import Iter "mo:base/Iter";
 
-module {
-    // challenge 1
-    // we should pass second argument with compare function for abstart type T
-    public func unique<T>(l : List.List<T>) : List.List<T> {
-        var list = List.nil<T>();
-        let iter = List.toIter<T>(l);
-        for (i in iter) {
-            if (not List.some<T>(list, func a = a == i)) {
-                list := List.push<T>(i, list);
-            }
-        };
-        list;
+actor{
+
+   // Test unique and reverse from challenges.mo
+   public func test_unique() : async List.List<Nat>{
+        var myArray : [Nat] = [0,0,2,3,6,6,6,2,5,7];
+        var myList = List.fromArray<Nat>(myArray);
+        return Fn.unique(myList);
     };
 
-    // challenge 2
-    // perhaps I misunderstand the challenge
-    public func reverse<T>(l : List.List<T>) : List.List<T> {
-        List.reverse<T>(l);
+    public func test_reverse() : async List.List<Nat>{
+        var myArray : [Nat] = [0,0,2,3,6,6,6,2,5,7];
+        var myList = List.fromArray<Nat>(myArray);
+        return Fn.reverse(myList);
     };
+
+    public query ({ caller }) func is_anon() : async Bool {
+        Principal.isAnonymous(caller);
+    };
+
+    let usernames = Map.HashMap<Principal, Text>(0, Principal.equal, Principal.hash);
+
+    public query func get_usernames() : async [(Principal, Text)] {
+        Iter.toArray(usernames.entries());
+    };
+
+    // Test find in buffer
+    public func test_find_in_buffer() : async ?Nat{
+        let my_buffer = Buffer.Buffer<Nat>(1);
+        my_buffer.add(4);
+        my_buffer.add(12);
+        return Fn.find_in_buffer(my_buffer,4);
+  };
 
 };

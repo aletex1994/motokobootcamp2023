@@ -1,10 +1,9 @@
 import Buffer "mo:base/Buffer";
 import List "mo:base/List";
-import Prelude "mo:base/Prelude";
+import Iter "mo:base/Iter";
 
 module {
-    // challenge 1
-    // we should pass second argument with compare function for abstart type T
+    
     public func unique<T>(l : List.List<T>) : List.List<T> {
         var list = List.nil<T>();
         let iter = List.toIter<T>(l);
@@ -15,11 +14,13 @@ module {
         };
         list;
     };
-
-    // challenge 2
-    // perhaps I misunderstand the challenge
+    
     public func reverse<T>(l : List.List<T>) : List.List<T> {
         List.reverse<T>(l);
+    };
+
+    public func find_in_buffer<T>(buf: Buffer.Buffer<T>, val: T) : ?Nat {
+        return Buffer.indexOf<T>(val, buf, func a = a == val);
     };
 
 };
