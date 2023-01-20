@@ -19,4 +19,8 @@ module {
         List.reverse<T>(l);
     };
 
+    public func find_in_buffer<T>(buf: Buffer.Buffer<T>, val: T) : ?Nat {
+        return Buffer.indexOf<T>(val, buf, func a = a == val);
+    };
+
 };

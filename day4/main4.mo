@@ -30,4 +30,13 @@ actor{
         Iter.toArray(usernames.entries());
     };
 
+    // Test find in buffer
+    public func test_find_in_buffer() : async ?Nat{
+        let my_buffer = Buffer.Buffer<Nat>(1);
+        my_buffer.add(4);
+        my_buffer.add(12);
+        return Fn.find_in_buffer(my_buffer,4);
+  };
+
+
 };
