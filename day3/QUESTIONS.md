@@ -11,4 +11,4 @@ actor {
     };
 }
 ```
-  A: Yes, we can create a certified variable for this. 
+  A: Yes, we can create a certified variable for this.
