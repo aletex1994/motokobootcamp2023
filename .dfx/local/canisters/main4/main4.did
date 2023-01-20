@@ -1,1 +1,9 @@
-
+type List = 
+ opt record {
+       nat;
+       List;
+     };
+service : {
+  test_reverse: () -> (List);
+  test_unique: () -> (List);
+}
